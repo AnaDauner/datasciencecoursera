@@ -1,0 +1,37 @@
+---
+title: "README"
+author: "AnaDauner"
+date: "20/May/2020"
+output: html_document
+---
+
+The script *run_analysis.R* is divided into **9 sections**.
+
+The **first section** reads the files that contain information relevant to both TRAIN and TEST datasets, i.e., *"activity_labels.txt"* and *"features.txt"* files. This section attributes names to their columns and convert the charcters into factors.
+
+The **second and third sections** read the files containing the data from the TRAIN and TEST datasets, respectively. The TRAIN files used in the second section are: *"subject_train.txt"*, *"y_train.txt"* and *"X_train.txt"*. The TEST files used in the second section are: *"subject_test.txt"*, *"y_test.txt"* and *"X_test.txt"*.
+
+Since both *"X_train.txt"* and *"X_test.txt"* are very large and heavy to work with, the **fourth section** subsets them by selecting only the columns that contains the *mean* and *standard deviation* of the variables. Only the features that present both *mean* and *standard deviation* were selected.
+
+The **fifth section** merges the TRAIN and the TEST datasets.
+
+The **sixth section** reorders the columns, so the parameters "dataset" (train or test), "subject" (1 to 30) and "activity" (1 to 6) appears before the measured variables (features).
+
+The **seventh section** renames the levels of the "activity" column, from "1 to 6" to "walking, walking_upstairs, walking_downstairs, sitting, standing and laying".
+
+The **eighth section** renames the measured variables using the names provided in the *"features.txt"* file.
+
+Finally, the **ninth section** generates the *"Output.txt"* file containing the tidy data set.
+
+
+To run the *run_analysis.R*, the following files are required:  
+- UCI HAR Dataset/*activity_labels.txt*  
+- UCI HAR Dataset/*features.txt*  
+- UCI HAR Dataset/test/*subject_test.txt*  
+- UCI HAR Dataset/test/*y_test.txt*  
+- UCI HAR Dataset/test/*X_test.txt*  
+- UCI HAR Dataset/train/*subject_train.txt*  
+- UCI HAR Dataset/train/*y_train.txt*  
+- UCI HAR Dataset/train/*X_train.txt*  
+
+The variables are described in the *"CodeBook.Rmd"* file.
